@@ -1,0 +1,460 @@
+/* Estilos Generales */
+:root {
+    --primary-color: #48cae4;
+    --secondary-color: #0077b6;
+    --accent-color: #72efdd;
+    --monster-main: #4cc9f0;
+    --monster-light: #caf0f8;
+    --monster-detail: #90e0ef;
+    --bg-color: #e0f7fa;
+    --text-color: #023e8a;
+    --white: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+header {
+    background-color: var(--secondary-color);
+    color: var(--white);
+    padding: 1rem 0;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+h1{
+    text-align: center;
+}
+
+.header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo img {
+    display: block;
+    height: 90px;
+}
+
+/* Menu Hamburguesa - Oculto en Desktop */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    z-index: 100;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--white);
+    transition: 0.3s;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: var(--white);
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover, nav a.active {
+    color: var(--accent-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav {
+        position: absolute;
+        top: 80px;
+        right: -100%;
+        width: 200px;
+        background-color: var(--secondary-color);
+        transition: 0.4s;
+        box-shadow: -2px 5px 10px rgba(0,0,0,0.1);
+        border-radius: 0 0 0 15px;
+        z-index: 99;
+    }
+
+    nav.active {
+        right: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        align-items: center;
+    }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav {
+        position: absolute;
+        top: 80px;
+        right: -100%;
+        width: 200px;
+        background-color: var(--secondary-color);
+        transition: 0.4s;
+        box-shadow: -2px 5px 10px rgba(0,0,0,0.1);
+        border-radius: 0 0 0 15px;
+        z-index: 99;
+    }
+
+    nav.active {
+        right: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .monster-info {
+        grid-template-columns: 1fr;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+    }
+}
+}
+
+/* Main Content */
+main {
+    flex: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 2rem 20px;
+}
+
+/* --- Dibujo del Monstruo con CSS --- */
+.monster-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra el monstruo y los controles horizontalmente */
+    justify-content: center;
+    padding: 50px 0;
+}
+
+.monster {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.monster-body {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    background-color: var(--monster-main);
+    border-radius: 50%;
+    left: 25px;
+    top: 25px;
+    z-index: 2;
+    box-shadow: inset -10px -10px 20px rgba(0,0,0,0.2), 0 0 20px rgba(76, 202, 228, 0.5);
+}
+
+.eye {
+    position: absolute;
+    width: 80px;
+    height: 60px;
+    background-color: white;
+    border-radius: 50%;
+    top: 30px;
+    left: 35px;
+    z-index: 3;
+    overflow: hidden;
+    border: 3px solid var(--monster-detail);
+}
+
+.pupil {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle, #0077b6 0%, #023e8a 100%);
+    border-radius: 50%;
+    top: 15px;
+    left: 25px;
+}
+
+.mouth {
+    position: absolute;
+    width: 60px;
+    height: 20px;
+    background-color: white;
+    border-radius: 0 0 20px 20px;
+    bottom: 40px;
+    left: 45px;
+    z-index: 3;
+}
+
+.arm {
+    position: absolute;
+    width: 45px;
+    height: 25px;
+    background-color: var(--monster-main);
+    z-index: 1;
+    border-radius: 12px;
+}
+
+.arm.left {
+    left: 10px;
+    top: 75px;
+    transform: rotate(-15deg);
+}
+
+.arm.right {
+    right: 10px;
+    top: 75px;
+    transform: rotate(15deg);
+}
+
+.leg {
+    position: absolute;
+    width: 40px;
+    height: 45px;
+    background-color: var(--monster-main);
+    z-index: 1;
+    border-radius: 0 0 20px 20px;
+}
+
+.leg.left {
+    left: 50px;
+    bottom: 15px;
+}
+
+.leg.right {
+    right: 50px;
+    bottom: 15px;
+}
+
+/* --- Información del Monstruo --- */
+.monster-info {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.info-column {
+    background: var(--white);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+.info-column h2 {
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+}
+
+/* --- Formulario de Contacto --- */
+.form-section {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contact-form {
+    text-align: left;
+    background: var(--white);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    margin-top: 20px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-family: inherit;
+}
+
+.form-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-send {
+    background-color: var(--secondary-color);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-send:hover {
+    background-color: var(--accent-color);
+}
+
+.btn-clear {
+    background-color: #ddd;
+    color: #333;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.btn-clear:hover {
+    background-color: #bbb;
+}
+
+/* Footer */
+footer {
+    background-color: #ddd;
+    text-align: center;
+    padding: 1rem 0;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* --- Controles del Monstruo --- */
+.monster-controls {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 10px; /* Más pegados al monstruo */
+}
+
+.monster-controls button {
+    padding: 3px 8px; /* Mucho más pequeños */
+    font-size: 0.7rem; /* Fuente más pequeña */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: var(--secondary-color);
+    color: white;
+    transition: transform 0.2s, background 0.3s;
+}
+
+.monster-controls button:hover {
+    transform: scale(1.05);
+    background-color: var(--accent-color);
+}
+
+/* Clases de Estado para JS */
+.mouth-sad {
+    border-radius: 20px 20px 0 0 !important;
+    bottom: 20px !important;
+    height: 15px !important;
+}
+
+.arm-wave {
+    transform: rotate(60deg) !important;
+    transition: transform 0.3s ease;
+}
+
+.arm-wave-left {
+    transform: rotate(-60deg) !important;
+    transition: transform 0.3s ease;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: row;
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .menu-toggle {
+        display: flex;
+    }
+
+    nav {
+        position: absolute;
+        top: 80px;
+        right: -100%;
+        width: 200px;
+        background-color: var(--secondary-color);
+        transition: 0.4s;
+        box-shadow: -2px 5px 10px rgba(0,0,0,0.1);
+        border-radius: 0 0 0 15px;
+        z-index: 99;
+    }
+
+    nav.active {
+        right: 0;
+    }
+
+    nav ul {
+        flex-direction: column;
+        padding: 20px;
+        gap: 15px;
+        align-items: center;
+    }
+
+    .monster-info {
+        grid-template-columns: 1fr;
+    }
+
+    .form-buttons {
+        flex-direction: column;
+    }
+}
+

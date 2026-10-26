@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contacto - El Monstruo Amistoso</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <img src="/logo.png" alt="Logo del Monstruo Amistoso">
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+            <nav>
+                <ul id="nav-list">
+                    <li><a href="index.html">Inicio</a></li>
+                    <li><a href="contacto.html" class="active">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="form-section">
+            <h1>Contacta con Glup</h1>
+            <p>Envíanos un mensaje y Glup te responderá lo antes posible (probablemente con un dibujo de un pastel).</p>
+
+            <form action="#" method="POST" class="contact-form">
+                <div class="form-group">
+                    <label for="nombre">Nombre:</label>
+                    <input type="text" id="nombre" name="nombre" required placeholder="Tu nombre">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="comentario">Comentario:</label>
+                    <textarea id="comentario" name="comentario" rows="5" required placeholder="Escribe tu mensaje aquí..."></textarea>
+                </div>
+
+                <div class="form-buttons">
+                    <button type="submit" class="btn-send">Enviar</button>
+                    <button type="reset" class="btn-clear">Limpiar Formulario</button>
+                </div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 El Monstruo Amistoso. Creado con cariño para el aprendizaje web.</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
